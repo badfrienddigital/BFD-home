@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABYUlEQVR4Xu3azREBQRiE4d5MyYAMyEAmyEAoZEAE1FTZm4uZ76d7ZtxZ+3jbYVgw+GMZ/P4xAWYBgwvMCQwewPwSrJnAGcAewL2HemoA3gCeAE4AjuoItQDrfZcKtgBuqhCtAOt9X1RnYQVQICRnYQkgOQsPAKlZeAJIzMIbgH4WUQC0s4gGoJtFBgDVLDIBKGbBAJA6CxaAtFmwAYTPghUgbBbMACGzUABwnYUSgMss1ADMZ6EKYDYLdYDmWfQA0DSLngAeADb/nlD3APD6/kZxqDmaVwe4Ati1/EqlClCV+69C1ACaclcHaM5dFcAsdzUA89yVAFxyVwBwzZ0ZICR3VoCw3NkAwnNnAUjLnQEgNfdMAIrcMwCoco8GoMs9CoA2d28A+tw9ASRy9wCQyt0SQDJ3K4Dyv+Cmg8ia01uv59ScCXq9l5TXnQAp7EQXnQUQfRgpb2UWkMJOdNHhC/gA7UmOQfHRC/MAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1.0">
+<title>Bad Friend Digital</title>
+</head>
+
+<style>
+
+.thehack{
+  position:fixed;
+  left:-10000px;
+  opacity:0;
+}
+.thehack:checked ~ span{
+  -webkit-filter: url(#filter-4) drop-shadow(5px 3px 5px gray);
+  filter: url(#filter-4) drop-shadow(5px 3px 5px gray);
+}
+
+.posi {
+  position:absolute;
+}
+
+.conty {
+  height: 100%;
+  width: 100%;
+  top:0;
+  position: absolute;
+  z-index:-2;
+}
+
+.starz {
+  display: inline-block;
+  height: 180vh;
+  width: 180vw;
+  padding: 0;
+  top:0;
+  left:-20vw;
+  background-color:black;
+  background-image:
+  -webkit-radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  -webkit-radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  -webkit-radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  -webkit-radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+.bg3 {
+  width: 140%;
+  height: 105%;
+  position:absolute;
+  top:60%;
+  left:-20%;
+  mix-blend-mode: overlay;
+  opacity:0.1;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-animation: layer2 5s ease-in-out infinite;
+          animation: layer2 5s ease-in-out infinite;
+}
+
+@-webkit-keyframes layer2 {
+  0%    {opacity:.1}
+  20%  {opacity:.98}
+  60%  {opacity:0}
+  70%  {opacity:.85}
+  100% {opacity:.1}
+}
+
+@keyframes layer2 {
+  0%    {opacity:.1}
+  20%  {opacity:.98}
+  60%  {opacity:0}
+  70%  {opacity:.85}
+  100% {opacity:.1}
+}
+
+.bg2 {
+  width: 140%;
+  height: 65%;
+  position:absolute;
+  top:0;
+  left:-20%;
+  mix-blend-mode: overlay;
+  opacity:0.1;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-animation: layer1 6s ease-in-out infinite;
+          animation: layer1 6s ease-in-out infinite;
+}
+
+@-webkit-keyframes layer1 {
+  0%    {opacity:.1}
+  30%  {opacity:.90}
+  60%  {opacity:0}
+  80%  {opacity:.60}
+  100% {opacity:.1}
+}
+
+@keyframes layer1 {
+  0%    {opacity:.1}
+  30%  {opacity:.90}
+  60%  {opacity:0}
+  80%  {opacity:.60}
+  100% {opacity:.1}
+}
+
+.ballz {
+  display: inline-block;
+  visibility: hidden;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  background: white;
+  border-radius: 50%;
+  color: #222;
+  opacity:0;
+  font-size: 24px;
+  font: Helvetica, Arial, Sans-serif;
+  height: .3em;
+  width: .3em;
+  margin-bottom: .3em;
+}
+
+@-webkit-keyframes rando1 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(-85vw, 5vh, 0);
+                transform: translate3d(-85vw, 5vh, 0);
+    }
+    1% {
+        opacity:.8;
+        -webkit-transform: translate3d(-80vw, 10vh, 0);
+                transform: translate3d(-80vw, 10vh, 0);
+    }
+    12% {opacity:.6;
+        -webkit-transform: translate3d(140vw, 40vh, 0);
+                transform: translate3d(140vw, 40vh, 0);
+    }
+
+    13% {
+        opacity:0;
+        -webkit-transform: translate3d(145vw, 42vh, 0);
+                transform: translate3d(145vw, 42vh, 0);
+        visibility: hidden;
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(150vw, 45vh, 0);
+                transform: translate3d(150vw, 45vh, 0);
+    }
+}
+
+@keyframes rando1 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(-85vw, 5vh, 0);
+                transform: translate3d(-85vw, 5vh, 0);
+    }
+    1% {
+        opacity:.8;
+        -webkit-transform: translate3d(-80vw, 10vh, 0);
+                transform: translate3d(-80vw, 10vh, 0);
+    }
+    12% {opacity:.6;
+        -webkit-transform: translate3d(140vw, 40vh, 0);
+                transform: translate3d(140vw, 40vh, 0);
+    }
+
+    13% {
+        opacity:0;
+        -webkit-transform: translate3d(145vw, 42vh, 0);
+                transform: translate3d(145vw, 42vh, 0);
+        visibility: hidden;
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(150vw, 45vh, 0);
+                transform: translate3d(150vw, 45vh, 0);
+    }
+}
+
+@-webkit-keyframes rando2 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(145vw, 45vh, 0);
+                transform: translate3d(145vw, 45vh, 0);
+    }
+    1% {
+        opacity:.7;
+        -webkit-transform: translate3d(140vw, 50vh, 0);
+                transform: translate3d(140vw, 50vh, 0);
+    }
+    11% {opacity:.5;
+        -webkit-transform: translate3d(-80vw, 95vh, 0);
+                transform: translate3d(-80vw, 95vh, 0);
+    }
+    12% {opacity:0;
+         visibility: hidden;
+         -webkit-transform: translate3d(-85vw, 97vh, 0);
+                 transform: translate3d(-85vw, 97vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(-88vw, 98vh, 0);
+                transform: translate3d(-88vw, 98vh, 0);
+    }
+}
+
+@keyframes rando2 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(145vw, 45vh, 0);
+                transform: translate3d(145vw, 45vh, 0);
+    }
+    1% {
+        opacity:.7;
+        -webkit-transform: translate3d(140vw, 50vh, 0);
+                transform: translate3d(140vw, 50vh, 0);
+    }
+    11% {opacity:.5;
+        -webkit-transform: translate3d(-80vw, 95vh, 0);
+                transform: translate3d(-80vw, 95vh, 0);
+    }
+    12% {opacity:0;
+         visibility: hidden;
+         -webkit-transform: translate3d(-85vw, 97vh, 0);
+                 transform: translate3d(-85vw, 97vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(-88vw, 98vh, 0);
+                transform: translate3d(-88vw, 98vh, 0);
+    }
+}
+
+@-webkit-keyframes rando3 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(-85vw, 65vh, 0);
+                transform: translate3d(-85vw, 65vh, 0);
+    }
+    1% {visibility: visible;
+        opacity:.9;
+        -webkit-transform: translate3d(-80vw, 60vh, 0);
+                transform: translate3d(-80vw, 60vh, 0);
+    }
+    13% {opacity:.8;
+        -webkit-transform: translate3d(140vw, 2vh, 0);
+                transform: translate3d(140vw, 2vh, 0);
+    }
+    14% {opacity:0;
+        visibility: hidden;
+        -webkit-transform: translate3d(145vw, 1vh, 0);
+                transform: translate3d(145vw, 1vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(148vw, 1vh, 0);
+                transform: translate3d(148vw, 1vh, 0);
+    }
+}
+
+@keyframes rando3 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(-85vw, 65vh, 0);
+                transform: translate3d(-85vw, 65vh, 0);
+    }
+    1% {visibility: visible;
+        opacity:.9;
+        -webkit-transform: translate3d(-80vw, 60vh, 0);
+                transform: translate3d(-80vw, 60vh, 0);
+    }
+    13% {opacity:.8;
+        -webkit-transform: translate3d(140vw, 2vh, 0);
+                transform: translate3d(140vw, 2vh, 0);
+    }
+    14% {opacity:0;
+        visibility: hidden;
+        -webkit-transform: translate3d(145vw, 1vh, 0);
+                transform: translate3d(145vw, 1vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(148vw, 1vh, 0);
+                transform: translate3d(148vw, 1vh, 0);
+    }
+}
+
+@-webkit-keyframes rando4 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(145vw, 15vh, 0);
+                transform: translate3d(145vw, 15vh, 0);
+    }
+    1% {visibility: visible;
+        opacity:.5;
+        -webkit-transform: translate3d(140vw, 20vh, 0);
+                transform: translate3d(140vw, 20vh, 0);
+    }
+    11% {opacity:.6;
+        -webkit-transform: translate3d(-80vw, 30vh, 0);
+                transform: translate3d(-80vw, 30vh, 0);
+    }
+    12% {opacity:0;
+         visibility: hidden;
+        -webkit-transform: translate3d(-85vw, 32vh, 0);
+                transform: translate3d(-85vw, 32vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(-90vw, 35vh, 0);
+                transform: translate3d(-90vw, 35vh, 0);
+    }
+}
+
+@keyframes rando4 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(145vw, 15vh, 0);
+                transform: translate3d(145vw, 15vh, 0);
+    }
+    1% {visibility: visible;
+        opacity:.5;
+        -webkit-transform: translate3d(140vw, 20vh, 0);
+                transform: translate3d(140vw, 20vh, 0);
+    }
+    11% {opacity:.6;
+        -webkit-transform: translate3d(-80vw, 30vh, 0);
+                transform: translate3d(-80vw, 30vh, 0);
+    }
+    12% {opacity:0;
+         visibility: hidden;
+        -webkit-transform: translate3d(-85vw, 32vh, 0);
+                transform: translate3d(-85vw, 32vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(-90vw, 35vh, 0);
+                transform: translate3d(-90vw, 35vh, 0);
+    }
+}
+
+@-webkit-keyframes rando5 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(-85vw, 95vh, 0);
+                transform: translate3d(-85vw, 95vh, 0);
+    }
+    1% {visibility: visible;
+        opacity:.5;
+        -webkit-transform: translate3d(-80vw, 90vh, 0);
+                transform: translate3d(-80vw, 90vh, 0);
+    }
+    15% {opacity:.6;
+        -webkit-transform: translate3d(140vw, 30vh, 0);
+                transform: translate3d(140vw, 30vh, 0);
+    }
+    16% {opacity:0;
+        visibility: hidden;
+        -webkit-transform: translate3d(145vw, 25vh, 0);
+                transform: translate3d(145vw, 25vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(150vw, 20vh, 0);
+                transform: translate3d(150vw, 20vh, 0);
+    }
+}
+
+@keyframes rando5 {
+    0% {visibility: visible;
+        opacity:0;
+        -webkit-transform: translate3d(-85vw, 95vh, 0);
+                transform: translate3d(-85vw, 95vh, 0);
+    }
+    1% {visibility: visible;
+        opacity:.5;
+        -webkit-transform: translate3d(-80vw, 90vh, 0);
+                transform: translate3d(-80vw, 90vh, 0);
+    }
+    15% {opacity:.6;
+        -webkit-transform: translate3d(140vw, 30vh, 0);
+                transform: translate3d(140vw, 30vh, 0);
+    }
+    16% {opacity:0;
+        visibility: hidden;
+        -webkit-transform: translate3d(145vw, 25vh, 0);
+                transform: translate3d(145vw, 25vh, 0);
+    }
+    100% {visibility: hidden;
+        opacity:0;
+        -webkit-transform: translate3d(150vw, 20vh, 0);
+                transform: translate3d(150vw, 20vh, 0);
+    }
+}
+
+.rando {
+  position: relative;
+  display: inline-block;
+  width:100%;
+  height:100%;
+
+}
+
+.rando li:nth-child(2n+1) {
+  -webkit-animation: rando1 12s linear infinite;
+          animation: rando1 12s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.rando li:nth-child(3n+2) {
+  -webkit-animation: rando2 12s linear infinite;
+          animation: rando2 12s linear infinite;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+.rando li:nth-child(5n+3) {
+  -webkit-animation: rando3 13s linear infinite;
+          animation: rando3 13s linear infinite;
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+}
+.rando li:nth-child(7n+5) {
+  -webkit-animation: rando4 12s linear infinite;
+          animation: rando4 12s linear infinite;
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s;
+}
+.rando li:nth-child(11n+7) {
+  -webkit-animation: rando5 11s linear infinite;
+          animation: rando5 11s linear infinite;
+  -webkit-animation-delay: 16s;
+          animation-delay: 16s;
+}
+
+span {
+    font-family: Gill Sans Extrabold, sans-serif;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    z-index:1;
+    width: 4em;
+    top: 0; bottom: 0;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 6vh;
+    display: inline-block;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    color:white;
+    opacity:.85;
+    font-size: 4em;
+    letter-spacing: -1px;
+    font-weight: bold;
+    text-shadow: 2px 2px 1px Gainsboro;
+    text-shadow: 3px 3px 2px DimGray;
+    text-shadow: -3px -3px 2px DimGray;
+    text-shadow: -6px -6px 5px DimGray;
+    text-shadow: -2px -1px 2px Gainsboro;
+    text-shadow: -2px 0px 2px Gainsboro;
+    -webkit-transition:all .6s ease-in-out;
+    transition: all .6s ease-in-out;
+}
+
+span:hover, span:focus {
+    -webkit-transform: scale(1.8);
+            transform: scale(1.8);
+}
+
+html {
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   overflow:hidden;
+}
+
+body {
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   position:relative;
+   overflow: hidden;
+   text-align: center;
+}
+
+
+</style>
+
+
+<body>
+<input id="checkboxhack" class="thehack" type="checkbox">
+<span><label for="checkboxhack">BFD</label></span>
+
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" class="posi">
+  <defs>
+    <filter id="filter-4">
+      <feFlood flood-color="#FF0000" flood-opacity="0.4" result="RED" />
+      <feFlood flood-color="#00FF00" flood-opacity="0.6" result="GREEN" />
+      <feFlood flood-color="#0000FF" flood-opacity="0.5" result="BLUE" />
+      <feComposite operator="in" in="RED" in2="SourceAlpha" result="RED_TEXT"/>
+      <feComposite operator="in" in="GREEN" in2="SourceAlpha" result="GREEN_TEXT"/>
+      <feComposite operator="in" in="BLUE" in2="SourceAlpha" result="BLUE_TEXT"/>
+      <feOffset in="RED_TEXT" dx="-3" dy="0" result="RED_TEXT_OFF"/>
+      <feOffset in="GREEN_TEXT" dx="5" dy="-1"  result="GREEN_TEXT_OFF"/>
+      <feOffset in="BLUE_TEXT" dx="0" dy="2"  result="BLUE_TEXT_OFF"/>
+      <feMerge>
+              <feMergeNode in="RED_TEXT_OFF" />
+              <feMergeNode in="GREEN_TEXT_OFF"/>
+              <feMergeNode in="BLUE_TEXT_OFF"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
+
+<ui class="rando">
+<li class="ballz"></li>
+<li class="ballz"></li>
+<li class="ballz"></li>
+<li class="ballz"></li>
+<li class="ballz"></li>
+</ui>
+
+<div class="conty">
+<div class="bg2">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+<defs>
+ <linearGradient id="MyGradient1" x1="0" x2="0" y1="0" y2="1">
+    <stop id="stop1" offset="90%" stop-color="Gainsboro" />
+    <stop id="stop2" offset="100%" stop-color="rgba(220,220,220,0)"/>
+  </linearGradient>
+</defs>
+        <path d="M0 0 H 100 V 100 H 0 L 0 0" fill="url(#MyGradient1)"/>
+</svg>
+</div>
+<div class="bg3">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+<defs>
+ <linearGradient id="MyGradient2" x1="0" x2="0" y1="1" y2="0">
+    <stop id="stop1" offset="90%" stop-color="Gainsboro" />
+    <stop id="stop2" offset="100%" stop-color="rgba(220,220,220,0)"/>
+  </linearGradient>
+</defs>
+        <path d="M0 0 H 100 V 100 H 0 L 0 0" fill="url(#MyGradient2)"/>
+</svg>
+</div>
+<div class="starz"></div>
+</div>
+
+</body>
+</html>
